@@ -1,1 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お父さん時計 Fire HD10</title>
 
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    color:#fff;
+    font-family:sans-serif;
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#container{
+    text-align:center;
+    transition:transform 0.8s;
+}
+
+#year{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+#date{
+    font-size:70px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+#time{
+    font-size:120px;
+    color:#00ff00;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div id="container">
+
+<div id="year"></div>
+
+<div id="date"></div>
+
+<div id="time"></div>
+
+</div>
+
+<script>
+  function updateClock(){
+
+    const now = new Date();
+
+    const year = now.getFullYear();
+    const reiwa = year - 2018;
+
+    const month = now.getMonth()+1;
+    const day = now.getDate();
+
+    const week=["日","月","火","水","木","金","土"];
+    const youbi=week[now.getDay()];
+
+    const hour=String(now.getHours()).padStart(2,"0");
+    const minute=String(now.getMinutes()).padStart(2,"0");
+
+    document.getElementById("year").innerHTML=
+        `令和${reiwa}年（${year}年）`;
+
+    let color="#ffff00";
+
+    if(now.getDay()==0){
+        color="#ff4040";
+    }
+
+    if(now.getDay()==6){
+        color="#40ffff";
+    }
+
+    document.getElementById("date").innerHTML=
+        `<span style="color:${color}">
+        ${month}月${day}日（${youbi}）
+        </span>`;
+
+    document.getElementById("time").innerHTML=
+        `${hour}:${minute}`;
+
+}
+
+updateClock();
+
+setInterval(updateClock,1000);
+  // ===== 焼き付き防止 =====
+function moveDisplay(){
+
+    const x = Math.floor(Math.random()*31)-15;
+    const y = Math.floor(Math.random()*31)-15;
+
+    document.getElementById("container").style.transform =
+        `translate(${x}px,${y}px)`;
+  
+    // 夜22時～朝6時は少し暗くする
+    const hourNum = now.getHours();
+
+    if (hourNum >= 22 || hourNum < 6) {
+        document.body.style.opacity = "0.55";
+    } else {
+        document.body.style.opacity = "1";
+    }
+}
+
+moveDisplay();
+
+setInterval(moveDisplay,5*60*1000);
+  
+</script>
+
+</body>
+</html>
