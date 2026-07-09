@@ -2,125 +2,132 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<title>BIGカレンダ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お父さん時計 Fire HD10</title>
+
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-  background: #000000;
-  color: white;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  width: 100vw;
-  height: 100svh;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+body{
+    background:#000;
+    color:#fff;
+    font-family:sans-serif;
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-#container {
-  text-align: center;
-  user-select: none;
-  -webkit-user-select: none;
-  padding: clamp(8px, 2vmin, 20px);
-  max-width: 96vw;
-  max-height: 96vh;
-  max-height: 96svh;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(8px, 1.5vmin, 16px);
+#container{
+    text-align:center;
+    transition:transform 0.8s;
 }
 
-#year {
-  font-size: clamp(16px, 4vmin, 48px);
-  line-height: 1.2;
+#year{
+    font-size:40px;
+    margin-bottom:15px;
 }
 
-#date {
-  font-size: clamp(32px, 8vmin, 96px);
-  font-weight: bold;
-  line-height: 1.1;
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
+#date{
+    font-size:70px;
+    font-weight:bold;
+    margin-bottom:20px;
 }
 
-#date .unit,
-#date .dow-bracket {
-  font-size: 0.6em;
-}
-
-#time {
-  font-size: clamp(32px, 8vmin, 96px);
-  color: #00ff00;
-  font-weight: bold;
-}
-
-.highlight {
-  font-weight: 900;
-  text-shadow: 0 0 20px currentColor;
+#time{
+    font-size:120px;
+    color:#00ff00;
+    font-weight:bold;
 }
 </style>
 </head>
 
 <body>
+
 <div id="container">
-  <div id="year"></div>
-  <div id="date"></div>
-  <div id="time"></div>
+
+<div id="year"></div>
+
+<div id="date"></div>
+
+<div id="time"></div>
+
 </div>
 
 <script>
-/* ===== テスト日時固定 ===== */
-const TEST_MODE = true;
-// 月は0始まり → 10月 = 9
-const TEST_DATE = new Date(2026, 9, 12, 7, 0, 0); // 2026/10/12 07:00
-function getNow() {
-  return TEST_MODE ? new Date(TEST_DATE) : new Date();
+  function updateClock(){
+
+    const now = new Date();
+
+    const year = now.getFullYear();
+    const reiwa = year - 2018;
+
+    const month = now.getMonth()+1;
+    const day = now.getDate();
+
+    const week=["日","月","火","水","木","金","土"];
+    const youbi=week[now.getDay()];
+
+    const hour=String(now.getHours()).padStart(2,"0");
+    const minute=String(now.getMinutes()).padStart(2,"0");
+
+    document.getElementById("year").innerHTML=
+        `令和${reiwa}年（${year}年）`;
+
+    let color="#ffff00";
+
+    if(now.getDay()==0){
+        color="#ff4040";
+    }
+
+    if(now.getDay()==6){
+        color="#40ffff";
+    }
+
+    document.getElementById("date").innerHTML=
+        `<span style="color:${color}">
+        ${month}月${day}日（${youbi}）
+        </span>`;
+
+    document.getElementById("time").innerHTML=
+        `${hour}:${minute}`;
+
 }
-/* ========================== */
 
-function updateDisplay() {
-  const now = getNow();
+updateClock();
 
-  const year = now.getFullYear();
-  const reiwa = year - 2018;
-  const month = now.getMonth() + 1;
-  const day = now.getDate();
-  const dow = now.getDay();
-  const dowStr = ['日','月','火','水','木','金','土'][dow];
+setInterval(updateClock,1000);
+  // ===== 焼き付き防止 =====
+function moveDisplay(){
 
-  const hour = String(now.getHours()).padStart(2,'0');
-  const minute = String(now.getMinutes()).padStart(2,'0');
+    const x = Math.floor(Math.random()*31)-15;
+    const y = Math.floor(Math.random()*31)-15;
 
-  document.getElementById('year').textContent =
-    `令和${reiwa}年（${year}年）`;
+    document.getElementById("container").style.transform =
+        `translate(${x}px,${y}px)`;
+  
+    // 夜22時～朝6時は少し暗くする
+    const hourNum = now.getHours();
 
-  let dateColor = '#ffff00';
-  if (dow === 0) dateColor = '#ff0000';
-  if (dow === 6) dateColor = '#00ffff';
-
-  document.getElementById('date').innerHTML = `
-    <span style="color:${dateColor}">${month}月${day}日(${dowStr})</span>
-  `;
-
-  document.getElementById('time').textContent =
-    `${hour}:${minute}`;
+    if (hourNum >= 22 || hourNum < 6) {
+        document.body.style.opacity = "0.55";
+    } else {
+        document.body.style.opacity = "1";
+    }
 }
 
-updateDisplay();
+moveDisplay();
+
+setInterval(moveDisplay,5*60*1000);
+  
 </script>
+
 </body>
 </html>
