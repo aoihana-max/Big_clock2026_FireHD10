@@ -502,7 +502,7 @@ function updateDisplay() {
     document.getElementById("date");
 
   dateElement.textContent =
-    `${month}月${day}日（${weekday}${holidayMark}）`;
+    `${month}月${day}日${weekday}${holidayMark}）`;
 
   if (holidayName || weekdayNumber === 0) {
     dateElement.style.color = "#ff4040";
