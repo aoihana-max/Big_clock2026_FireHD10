@@ -501,8 +501,8 @@ function updateDisplay() {
   const dateElement =
     document.getElementById("date");
 
-  dateElement.textContent =
-    `${month}月${day}日${weekday}${holidayMark}）`;
+dateElement.innerHTML =
+`${month}月${day}日<span style="font-size:0.72em;">(${weekday}${holidayMark})</span>`;
 
   if (holidayName || weekdayNumber === 0) {
     dateElement.style.color = "#ff4040";
