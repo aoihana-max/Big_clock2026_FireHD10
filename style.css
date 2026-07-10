@@ -1,128 +1,112 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-html,
-body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: #000;
-    color: #fff;
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#000;
+    color:#fff;
     font-family:
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
-        "Noto Sans JP",
         sans-serif;
 }
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-#container {
-    width: 100%;
-    height: 100%;
+#container{
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    padding: 1.5vh 2vw;
-
-    transition: transform 1s linear;
+    padding:2vh;
+    transition:transform 1s linear;
 }
 
-#year {
-    font-size: 6vh;
-    font-weight: bold;
-    line-height: 1;
-    color: #fff;
-
-    margin-bottom: 3vh;
+/* 年号 */
+#year{
+    font-size:8vh;
+    color:white;
+    font-weight:bold;
+    margin-bottom:1vh;
 }
 
-/* 日付：画面の主役 */
-#date {
-    width: 100%;
-
-    font-size: 18vh;
-    font-weight: 900;
-    line-height: 1;
-    white-space: nowrap;
-
-    text-align: center;
-    color: #ffff00;
-
-    margin-bottom: 5vh;
+/* 日付 */
+#date{
+    font-size:23vh;
+    font-weight:bold;
+    color:#ffff00;
+    text-align:center;
+    line-height:1.0;
+    margin-bottom:1vh;
 }
 
-/* 午前・午後と時刻を横並び */
-#timeArea {
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: 3vw;
-
-    margin-bottom: 4vh;
+/* 時間エリア */
+#timeArea{
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    gap:3vw;
+    margin-bottom:3vh;
 }
 
-#ampm {
-    font-size: 10vh;
-    font-weight: 900;
-    line-height: 1;
-    color: #fff;
+/* 午前・午後 */
+#ampm{
+    font-size:10vh;
+    color:white;
+    font-weight:bold;
+    padding-bottom:2vh;
 }
 
-/* 日付とほぼ同じ大きさ */
-#time {
-    font-size: 18vh;
-    font-weight: 900;
-    line-height: 1;
-    color: #00ff00;
-    white-space: nowrap;
+/* 時刻 */
+#time{
+    font-size:20vh;
+    color:#00ff00;
+    font-weight:bold;
+    line-height:1;
 }
 
-/* 通知メッセージ */
-#messageArea {
-    width: 96%;
-    min-height: 14vh;
+/* メッセージ欄 */
+#messageArea{
+    min-height:12vh;
+    width:92%;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:2vw;
 
-    gap: 2vw;
-
-    border-radius: 24px;
+    border-radius:20px;
 }
 
-#messageTime {
-    flex-shrink: 0;
-
-    font-size: 7vh;
-    font-weight: 900;
-    line-height: 1;
+/* 18:00など */
+#messageTime{
+    font-size:8vh;
+    font-weight:bold;
+    color:#ff9900;
 }
 
-#messageText {
-    font-size: 7vh;
-    font-weight: 900;
-    line-height: 1.1;
-
-    text-align: center;
-    white-space: nowrap;
+/* メッセージ本文 */
+#messageText{
+    font-size:7vh;
+    font-weight:bold;
+    color:white;
+    text-align:center;
 }
 
-.hidden {
-    visibility: hidden;
+/* 非表示 */
+.hidden{
+    visibility:hidden;
 }
