@@ -1,94 +1,128 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html,body{
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    background:#000;
-    color:#fff;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+    color: #fff;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Noto Sans JP",
+        sans-serif;
 }
 
-body{
-    display:flex;
-    justify-content:center;
-    align-items:center;
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#container{
-    width:100%;
-    height:100%;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-    transition:transform 1s linear;
+#container {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 1.5vh 2vw;
+
+    transition: transform 1s linear;
 }
 
-#year{
-    font-size:8vh;
-    color:white;
-    margin-bottom:1vh;
+#year {
+    font-size: 6vh;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+
+    margin-bottom: 3vh;
 }
 
-#date{
-    font-size:23vh;
-    font-weight:bold;
-    color:#ffff00;
-    text-align:center;
-    line-height:1.1;
-    margin-bottom:2vh;
+/* 日付：画面の主役 */
+#date {
+    width: 100%;
+
+    font-size: 18vh;
+    font-weight: 900;
+    line-height: 1;
+    white-space: nowrap;
+
+    text-align: center;
+    color: #ffff00;
+
+    margin-bottom: 5vh;
 }
 
-#timeArea{
-    display:flex;
-    align-items:flex-end;
-    justify-content:center;
-    gap:2vw;
-    margin-bottom:2vh;
+/* 午前・午後と時刻を横並び */
+#timeArea {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 3vw;
+
+    margin-bottom: 4vh;
 }
 
-#ampm{
-    font-size:16vh;
-    color:white;
-    font-weight:bold;
-    padding-bottom:1vh;
+#ampm {
+    font-size: 10vh;
+    font-weight: 900;
+    line-height: 1;
+    color: #fff;
 }
 
-#time{
-    font-size:20vh;
-    color:#00ff00;
-    font-weight:bold;
+/* 日付とほぼ同じ大きさ */
+#time {
+    font-size: 18vh;
+    font-weight: 900;
+    line-height: 1;
+    color: #00ff00;
+    white-space: nowrap;
 }
 
-#messageArea{
-    min-height:12vh;
-    width:90%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:2vw;
-    border-radius:20px;
+/* 通知メッセージ */
+#messageArea {
+    width: 96%;
+    min-height: 14vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 2vw;
+
+    border-radius: 24px;
 }
 
-#messageTime{
-    font-size:5vh;
-    font-weight:bold;
-    color:#ff9900;
+#messageTime {
+    flex-shrink: 0;
+
+    font-size: 7vh;
+    font-weight: 900;
+    line-height: 1;
 }
 
-#messageText{
-    font-size:5vh;
-    font-weight:bold;
-    color:white;
-    text-align:center;
+#messageText {
+    font-size: 7vh;
+    font-weight: 900;
+    line-height: 1.1;
+
+    text-align: center;
+    white-space: nowrap;
 }
 
-.hidden{
-    visibility:hidden;
+.hidden {
+    visibility: hidden;
 }
