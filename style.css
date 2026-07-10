@@ -31,18 +31,18 @@ body{
 }
 
 #year{
-    font-size:4vh;
+    font-size:5vh;
     color:white;
-    margin-bottom:2vh;
+    margin-bottom:1vh;
 }
 
 #date{
-    font-size:12vh;
+    font-size:18vh;
     font-weight:bold;
     color:#ffff00;
     text-align:center;
     line-height:1.1;
-    margin-bottom:4vh;
+    margin-bottom:2vh;
 }
 
 #timeArea{
@@ -50,18 +50,18 @@ body{
     align-items:flex-end;
     justify-content:center;
     gap:2vw;
-    margin-bottom:5vh;
+    margin-bottom:2vh;
 }
 
 #ampm{
-    font-size:6vh;
+    font-size:8vh;
     color:white;
     font-weight:bold;
     padding-bottom:1vh;
 }
 
 #time{
-    font-size:11vh;
+    font-size:16vh;
     color:#00ff00;
     font-weight:bold;
 }
