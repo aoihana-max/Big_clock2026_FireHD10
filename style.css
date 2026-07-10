@@ -31,13 +31,13 @@ body{
 }
 
 #year{
-    font-size:5vh;
+    font-size:8vh;
     color:white;
     margin-bottom:1vh;
 }
 
 #date{
-    font-size:18vh;
+    font-size:23vh;
     font-weight:bold;
     color:#ffff00;
     text-align:center;
@@ -54,14 +54,14 @@ body{
 }
 
 #ampm{
-    font-size:8vh;
+    font-size:16vh;
     color:white;
     font-weight:bold;
     padding-bottom:1vh;
 }
 
 #time{
-    font-size:16vh;
+    font-size:20vh;
     color:#00ff00;
     font-weight:bold;
 }
