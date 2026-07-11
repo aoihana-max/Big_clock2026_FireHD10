@@ -37,7 +37,7 @@ body{
 
 /* 年号 */
 #year{
-    font-size:8vh;
+    font-size:10vh;
     color:white;
     font-weight:bold;
     margin-bottom:1vh;
@@ -45,7 +45,7 @@ body{
 
 /* 日付 */
 #date{
-    font-size:23vh;
+    font-size:30vh;
     font-weight:bold;
     color:#ffff00;
     text-align:center;
@@ -64,7 +64,7 @@ body{
 
 /* 午前・午後 */
 #ampm{
-    font-size:10vh;
+    font-size:12vh;
     color:white;
     font-weight:bold;
     padding-bottom:2vh;
@@ -72,7 +72,7 @@ body{
 
 /* 時刻 */
 #time{
-    font-size:20vh;
+    font-size:24vh;
     color:#00ff00;
     font-weight:bold;
     line-height:1;
