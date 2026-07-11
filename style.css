@@ -64,7 +64,7 @@ body{
 
 /* 午前・午後 */
 #ampm{
-    font-size:12vh;
+    font-size:14vh;
     color:white;
     font-weight:bold;
     padding-bottom:2vh;
@@ -72,7 +72,7 @@ body{
 
 /* 時刻 */
 #time{
-    font-size:24vh;
+    font-size:28vh;
     color:#00ff00;
     font-weight:bold;
     line-height:1;
@@ -100,7 +100,7 @@ body{
 
 /* メッセージ本文 */
 #messageText{
-    font-size:7vh;
+    font-size:8vh;
     font-weight:bold;
     color:white;
     text-align:center;
