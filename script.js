@@ -300,9 +300,6 @@ function speak(text) {
 
   /* 通常ブラウザの読み上げ */
 
-
-   
-
   if (!("speechSynthesis" in window)) {
     return;
   }
