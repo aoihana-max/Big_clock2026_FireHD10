@@ -284,6 +284,43 @@ function loadJapaneseVoice() {
 }
 
 function speak(text) {
+  /* Fully Kiosk専用の読み上げが使える場合 */
+  if (
+    typeof fully !== "undefined" &&
+    typeof fully.textToSpeech === "function"
+  ) {
+    try {
+      fully.stopTextToSpeech();
+      fully.textToSpeech(text, "ja_JP");
+      return;
+    } catch (error) {
+      console.log("Fully TTS error:", error);
+    }
+  }
+
+  /* 通常ブラウザの読み上げ */
+  if (!("speechSynthesis" in window)) {
+    alert("この端末では音声読み上げを利用できません。");
+    return;
+  }
+
+  window.speechSynthesis.cancel();
+
+  const utterance =
+    new SpeechSynthesisUtterance(text);
+
+  utterance.lang = "ja-JP";
+  utterance.rate = 0.85;
+  utterance.pitch = 1;
+  utterance.volume = 1;
+
+  if (japaneseVoice) {
+    utterance.voice = japaneseVoice;
+  }
+
+  window.speechSynthesis.speak(utterance);
+}
+
   if (!("speechSynthesis" in window)) {
     return;
   }
