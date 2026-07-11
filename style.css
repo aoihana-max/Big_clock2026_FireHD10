@@ -110,31 +110,3 @@ body{
 .hidden{
     visibility:hidden;
 }
-
-
-#speakButton{
-    position:fixed;
-    right:2vw;
-    bottom:2vh;
-
-    min-width:18vw;
-    min-height:8vh;
-
-    padding:1vh 2vw;
-
-    border:4px solid #ffffff;
-    border-radius:18px;
-
-    background:#174ea6;
-    color:#ffffff;
-
-    font-size:4.5vh;
-    font-weight:bold;
-
-    cursor:pointer;
-}
-
-#speakButton:active{
-    transform:scale(0.96);
-    background:#0d3475;
-}
